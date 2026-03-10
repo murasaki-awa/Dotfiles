@@ -1,6 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-# for debuggin uncomment this: set -x
+# for debuggin uncomment this
+# set -x
+
+# for adding colors variable
+. colors
 
 create_session(){
     session=$1
@@ -11,28 +15,31 @@ create_session(){
 
     if [[ -n $session_exists ]]
     then
-        printf "Session:$session already exists. Attaching ...\n"
+        printf "Session: ${BOLD_MAGENTA} $session${RESET} already exists.\n"
+        printf "${CYAN} Attaching ...${RESET}\n"
+
         tmux a -t $session
     else
-        printf "Creating tmux session:$session ...\n"
-        tmux new-session -d -s $session
-        tmux rename-window -t $session:1 $window
-        tmux send-keys -t $session:$window "$windowScript" C-m
-        tmux attach-session -t $session:$window
+        printf "Creating tmux session: ${BOLD_MAGENTA} $session${RESET} ...\n"
+
+        tmux new-session -d -s "$session"
+        tmux rename-window -t "$session":1 "$window"
+        tmux send-keys -t "$session":"$window" "$windowScript" C-m
+        tmux attach-session -t "$session":"$window"
     fi
 }
 
 if [[ "$1" == "k" ]]
 then
-    create_session kittycfg-session KittyConf \
+    create_session 'kittycfg-session' '󰄛 KittyConf' \
         'cd ~/.config/kitty/ && clear && nvim kitty.conf'
 elif [[ "$1" == "n" ]]
 then
-    create_session nvimcfg-session neovimConf \
+    create_session 'nvimcfg-session' ' NeovimConf' \
         'cd ~/.config/nvim/ && clear && nvim init.lua'
 elif [[ "$1" == "t" ]]
 then
-    create_session tmuxcfg-session tmuxConf \
+    create_session 'tmuxcfg-session' ' TmuxConf' \
         'cd ~/.config/tmux/ && clear && nvim tmux.conf'
 else
     printf "%s\n" \
