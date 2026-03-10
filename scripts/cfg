@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# for debuggin uncomment this: set -x
+
+create_session(){
+    session=$1
+    window=$2
+    windowScript=$3
+
+    session_exists=$(tmux ls 2>/dev/null | grep $session)
+
+    if [[ -n $session_exists ]]
+    then
+        printf "Session:$session already exists. Attaching ...\n"
+        tmux a -t $session
+    else
+        printf "Creating tmux session:$session ...\n"
+        tmux new-session -d -s $session
+        tmux rename-window -t $session:1 $window
+        tmux send-keys -t $session:$window "$windowScript" C-m
+        tmux attach-session -t $session:$window
+    fi
+}
+
+if [[ "$1" == "k" ]]
+then
+    create_session kittycfg-session KittyConf \
+        'cd ~/.config/kitty/ && clear && nvim kitty.conf'
+elif [[ "$1" == "n" ]]
+then
+    create_session nvimcfg-session neovimConf \
+        'cd ~/.config/nvim/ && clear && nvim init.lua'
+elif [[ "$1" == "t" ]]
+then
+    create_session tmuxcfg-session tmuxConf \
+        'cd ~/.config/tmux/ && clear && nvim tmux.conf'
+else
+    printf "%s\n" \
+        "Invalid argument, pass one of the following:" \
+        "    k -> For KiTty terminal configuration." \
+        "    n -> For Neovim configuration." \
+        "    t -> For TMUX configuration."
+fi
