@@ -1,0 +1,109 @@
+# =================================
+# Quality of Life
+# =================================
+
+alias n="nvim"
+alias ls="ls -aho --color=auto"
+alias mountjellyfin="sshfs root@192.168.1.22:/mnt/pve/local-hdd/data/jellyfin/ ~/Remote/"
+alias mounttrixie="sshfs user@192.168.1.71:/home/user/ ~/Remote/ -p 2244"
+alias sshtrixie="ssh user@192.168.1.71 -p 2244"
+
+# =================================
+# SHELL
+# =================================
+
+alias aliases="nvim ~/.aliases"
+
+alias zshrc="nvim ~/.zshrc"
+alias szshrc="source ~/.zshrc"
+
+alias bashrc="nvim ~/.bashrc"
+alias sbashrc="source ~/.bashrc"
+
+alias tmuxcfg="nvim ~/.config/tmux/tmux.conf"
+
+# =================================
+# SYSTEMCTL
+# =================================
+
+alias ssctle="sudo systemctl enable"
+alias ssctlen="sudo systemctl enable --now"
+alias ssctld="sudo systemctl disable"
+alias ssctlr="sudo systemctl restart"
+alias ssctls="sudo systemctl status"
+
+# =================================
+# NEOVIM
+# =================================
+
+alias initnvim="nvim ~/.config/nvim/init.lua"
+
+# =================================
+# DOCKER
+# =================================
+
+alias sdbl='sudo docker build'
+alias sdcin='sudo docker container inspect'
+alias sdcls='sudo docker container ls'
+alias sdclsa='sudo docker container ls -a'
+alias sdib='sudo docker image build'
+alias sdi='sudo docker image inspect'
+alias sdils='sudo docker image ls'
+alias sdipu='sudo docker image push'
+alias sdipru='sudo docker image prune -a'
+alias sdirm='sudo docker image rm'
+alias sdit='sudo docker image tag'
+alias sdlo='sudo docker container logs'
+alias sdnc='sudo docker network create'
+alias sdncn='sudo docker network connect'
+alias sdndcn='sudo docker network disconnect'
+alias sdni='sudo docker network inspect'
+alias sdnls='sudo docker network ls'
+alias sdnrm='sudo docker network rm'
+alias sdpo='sudo docker container port'
+alias sdps='sudo docker ps'
+alias sdpsa='sudo docker ps -a'
+alias sdpu='sudo docker pull'
+alias sdr='sudo docker container run'
+alias sdrit='sudo docker container run -it'
+alias sdrm='sudo docker container rm'
+alias 'sdrm!'='sudo docker container rm -f'
+alias sdst='sudo docker container start'
+alias sdrs='sudo docker container restart'
+alias sdsta='sudo docker stop $(sudo docker ps -q)'
+alias sdstp='sudo docker container stop'
+alias sdsts='sudo docker stats'
+alias sdtop='sudo docker top'
+alias sdvi='sudo docker volume inspect'
+alias sdvls='sudo docker volume ls'
+alias sdvprune='sudo docker volume prune'
+alias sdxc='sudo docker container exec'
+alias sdxcit='sudo docker container exec -it'
+
+# =================================
+# DOCKER COMPOSE
+# =================================
+
+alias sdco='sudo docker compose'
+alias sdcb='sudo docker compose build'
+alias sdce='sudo docker compose exec'
+alias sdcps='sudo docker compose ps'
+alias sdcrestart='sudo docker compose restart'
+alias sdcrm='sudo docker compose rm'
+alias sdcr='sudo docker compose run'
+alias sdcstop='sudo docker compose stop'
+alias sdcup='sudo docker compose up'
+alias sdcupb='sudo docker compose up --build'
+alias sdcupd='sudo docker compose up -d'
+alias sdcupdb='sudo docker compose up -d --build'
+alias sdcdn='sudo docker compose down'
+alias sdcl='sudo docker compose logs'
+alias sdclf='sudo docker compose logs -f'
+alias sdclF='sudo docker compose logs -f --tail=0'
+alias sdcpull='sudo docker compose pull'
+alias sdcstart='sudo docker compose start'
+alias sdck='sudo docker compose kill'
+
+# =================================
+# EOF
+# =================================
