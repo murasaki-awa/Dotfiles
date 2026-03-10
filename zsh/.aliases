@@ -4,6 +4,9 @@
 
 alias n="nvim"
 alias ls="ls -aho --color=auto"
+
+alias scripts="cd ~/Dotfiles/scripts/ && n ."
+
 alias mountjellyfin="sshfs root@192.168.1.22:/mnt/pve/local-hdd/data/jellyfin/ ~/Remote/"
 alias mounttrixie="sshfs user@192.168.1.71:/home/user/ ~/Remote/ -p 2244"
 alias sshtrixie="ssh user@192.168.1.71 -p 2244"
