@@ -136,6 +136,8 @@ return {
       -- ts_ls = {},
 
       stylua = {}, -- Used to format Lua code
+      ansiblels = {},
+      terraformls = {},
 
       -- Special Lua Config, as recommended by neovim help docs
       lua_ls = {
