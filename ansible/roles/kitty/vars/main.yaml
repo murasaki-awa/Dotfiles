@@ -1,0 +1,8 @@
+---
+kitty_install_path: "{{ ansible_facts['user_dir'] }}/.local/kitty.app"
+kitty_symlink_path: "{{ ansible_facts['user_dir'] }}/.local/bin"
+local_app_path: "{{ ansible_facts['user_dir'] }}/.local/share/applications"
+dirs:
+  - "{{ kitty_install_path }}"
+  - "{{ kitty_symlink_path }}"
+...

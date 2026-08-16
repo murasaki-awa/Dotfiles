@@ -1,0 +1,88 @@
+#  ------------------------------------------------------------------------
+#    PRE-INSTALLATION  
+#  ------------------------------------------------------------------------
+
+
+- name: Pre-installation tasks.
+  block:
+ 
+  - name: Get info on Kitty executable.
+    ansible.builtin.stat:
+      path: "{{ kitty_install_path }}/bin/kitty"
+    register: kitty_binary
+
+  - name: Get Kitty's version if installed.
+    block:
+
+    - name: Get info string from kitty -v.
+      ansible.builtin.command:
+        argv:
+        - "{{ kitty_install_path }}/bin/kitty"
+        - -v
+      register: installed_kitty_info
+      changed_when: false
+
+    - name: Extract kitty version from installed_kitty_info.
+      ansible.builtin.set_fact:
+        installed_kitty_version: "{{ installed_kitty_info.stdout.split(' ')[1] }}"
+
+    when: kitty_binary.stat.exists
+
+  - name: Determine if Kitty needs to be installed.
+    ansible.builtin.set_fact:
+      kitty_needs_installation: >-
+        {{ 
+          not kitty_binary.stat.exists
+          or installed_kitty_version | default('') != kitty_version 
+        }}
+
+#  ------------------------------------------------------------------------
+#    INSTALLATION  
+#  ------------------------------------------------------------------------
+
+- name: Install Kitty.
+  block:
+
+  - name: Create dirs if they don't exist
+    ansible.builtin.file: 
+      path: "{{ item }}"
+      state: directory 
+    loop: "{{ dirs }}"
+
+  - name: Download and unarchive Kitty
+    ansible.builtin.unarchive:
+      src: "https://github.com/kovidgoyal/kitty/releases/download/v{{ kitty_version }}/kitty-{{ kitty_version }}-x86_64.txz"
+      dest: "{{ kitty_install_path }}"
+      remote_src: true
+
+  - name: Create symlinks to PATH
+    ansible.builtin.file:
+     src: "{{ kitty_install_path }}/bin/{{ item.src }}"
+     dest: "{{ kitty_symlink_path }}/{{ item.dest }}"
+     state: link
+    loop:
+      - { src: 'kitty', dest: 'kitty'}
+      - { src: 'kitten', dest: 'kitten'}
+
+  - name: Configure Kitty desktop entry
+    block:
+
+    - name: Copy kitty.desktop to ~/.local/share/applications
+      ansible.builtin.copy:
+        src: "{{ kitty_install_path }}/share/applications/kitty.desktop"
+        dest: "{{ local_app_path }}/kitty.desktop"
+        remote_src: true
+
+    - name: Update kitty.desktop icon path
+      ansible.builtin.replace:
+        path: "{{ local_app_path }}/kitty.desktop"
+        regexp: "^Icon=kitty$"
+        replace: "Icon={{ kitty_install_path }}/share/icons/hicolor/256x256/apps/kitty.png"
+
+    - name: Update kitty.desktop exec path
+      ansible.builtin.replace:
+        path: "{{ local_app_path }}/kitty.desktop"
+        regexp: "^Exec=kitty$"
+        replace: "Exec={{ kitty_install_path }}/bin/kitty"
+
+  when: kitty_needs_installation

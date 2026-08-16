@@ -1,0 +1,7 @@
+---
+- name: Configure Workstation
+  hosts: localhost
+
+  roles: 
+    - kitty
+...
