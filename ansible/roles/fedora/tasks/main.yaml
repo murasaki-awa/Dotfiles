@@ -1,0 +1,42 @@
+---
+- name: Import RPM Fusion Free GPG Key
+  become: true
+  ansible.builtin.rpm_key:
+    key: "https://download1.rpmfusion.org/free/fedora/RPM-GPG-KEY-rpmfusion-free-fedora-2020"
+    state: present
+
+- name: Import RPM Fusion Nonfree GPG Key
+  become: true
+  ansible.builtin.rpm_key:
+    key: "https://download1.rpmfusion.org/nonfree/fedora/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020"
+    state: present
+
+- name: Enable access to both the free and non-free software repository.
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+      - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Check Flatpak remotes
+  become: true
+  ansible.builtin.command:
+    argv:
+      - flatpak 
+      - remotes
+      - --show-details
+  register: flatpak_remotes
+  changed_when: false
+
+- name: Enable flathub remote
+  become: true
+  ansible.builtin.command:
+    argv:
+      - flatpak
+      - remote-modify
+      - --enable
+      - flathub
+  when: "'flathub' is not in flatpak_remotes.stdout"
+...
