@@ -27,7 +27,7 @@ return {
         return nil
       else
         return {
-          timeout_ms = 500,
+          timeout_ms = 2500,
           lsp_format = 'fallback',
         }
       end
@@ -47,6 +47,8 @@ return {
       scss = { 'prettier' },
       typescript = { 'prettier' },
       yaml = { 'prettier' },
+
+      sh = { 'shfmt' },
 
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },

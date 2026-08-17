@@ -4,17 +4,22 @@
 require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.blink',
+  -- require 'kickstart.plugins.catppuccin',
   require 'kickstart.plugins.conform',
   -- require 'kickstart.plugins.debug'
   require 'kickstart.plugins.filetype',
   require 'kickstart.plugins.gitsigns',
+  require 'kickstart.plugins.hardtime',
   require 'kickstart.plugins.indent-line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.lspconfig',
   require 'kickstart.plugins.mini-nvim',
-  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.moonfly',
+  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.oil',
   require 'kickstart.plugins.rose-pine',
   require 'kickstart.plugins.telescope',
+  -- require 'kickstart.plugins.tiny-code-action',
   require 'kickstart.plugins.todo-comments',
   -- require 'kickstart.plugins.tokyo-night',
   require 'kickstart.plugins.tree-sitter',
@@ -22,6 +27,7 @@ require('lazy').setup({
   require 'kickstart.plugins.vimtex',
   require 'kickstart.plugins.which-key',
   require 'kickstart.plugins.no-neck-pain',
+  require 'kickstart.plugins.markview',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

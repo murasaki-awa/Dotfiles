@@ -138,6 +138,10 @@ return {
       stylua = {}, -- Used to format Lua code
       ansiblels = {},
       terraformls = {},
+      bashls = {},
+      docker_language_server = {},
+      gopls = {},
+      texlab = {},
 
       -- Special Lua Config, as recommended by neovim help docs
       lua_ls = {

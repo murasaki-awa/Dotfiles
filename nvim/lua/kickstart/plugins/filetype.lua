@@ -15,12 +15,11 @@ return {
 
       ['.*/roles/.*/tasks/.*%yml'] = 'yaml.ansible',
       ['.*/roles/.*/tasks/.*%yaml'] = 'yaml.ansible',
-
       ['.*/roles/.*/handlers/.*%yml'] = 'yaml.ansible',
-      ['.*/roles/.*/defaults/.*%yml'] = 'yaml.ansible',
-      ['.*/roles/.*/vars/.*%yml'] = 'yaml.ansible',
       ['.*/roles/.*/handlers/.*%yaml'] = 'yaml.ansible',
+      ['.*/roles/.*/defaults/.*%yml'] = 'yaml.ansible',
       ['.*/roles/.*/defaults/.*%yaml'] = 'yaml.ansible',
+      ['.*/roles/.*/vars/.*%yml'] = 'yaml.ansible',
       ['.*/roles/.*/vars/.*%yaml'] = 'yaml.ansible',
 
       -- ---------------------------

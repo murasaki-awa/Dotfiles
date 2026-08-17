@@ -16,8 +16,10 @@ vim.o.mouse = 'a'
 vim.o.cc = '80'
 
 -- Tab behavior
-vim.o.expandtab = true
 vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.expandtab = false
+vim.o.smartindent = false
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false

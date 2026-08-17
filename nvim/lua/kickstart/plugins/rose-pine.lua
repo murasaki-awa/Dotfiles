@@ -4,5 +4,8 @@
 return {
   'rose-pine/neovim',
   name = 'rose-pine',
-  config = function() vim.cmd 'colorscheme rose-pine' end,
+  lazy = false,
+  priority = 1000,
+  -- remove lazy and priority when adding config
+  -- config = function() vim.cmd 'colorscheme rose-pine' end,
 }
