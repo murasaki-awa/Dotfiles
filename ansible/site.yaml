@@ -2,6 +2,12 @@
 - name: Configure Workstation
   hosts: localhost
 
-  roles: 
-    - kitty
+  roles:
+    #- kitty
+    - fedora
+    #- zed
+    #- steam
+    #- neovim
+    #- dotfiles
+    - zsh
 ...
