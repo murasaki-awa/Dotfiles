@@ -1,0 +1,8 @@
+dotfiles_nvim_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/nvim"
+dotfiles_nvim_link_path: "{{ ansible_facts['user_dir'] }}/.config/nvim"
+
+dotfiles_zsh_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/home/.zshrc"
+dotfiles_zsh_link_path: "{{ ansible_facts['user_dir'] }}/.zshrc"
+
+dotfiles_aliases_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/home/.aliases"
+dotfiles_aliases_link_path: "{{ ansible_facts['user_dir'] }}/.aliases"

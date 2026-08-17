@@ -1,0 +1,19 @@
+---
+- name: Create symlink for Neovim's dotfiles
+  ansible.builtin.file:
+    src: "{{ dotfiles_nvim_path }}"
+    dest: "{{ dotfiles_nvim_link_path }}"
+    state: link
+
+- name: Create symlink for Zsh
+  ansible.builtin.file:
+    src: "{{ dotfiles_zsh_path }}"
+    dest: "{{ dotfiles_zsh_link_path }}"
+    state: link
+
+- name: Create symlink for aliases
+  ansible.builtin.file:
+    src: "{{ dotfiles_aliases_path }}"
+    dest: "{{ dotfiles_aliases_link_path }}"
+    state: link
+...

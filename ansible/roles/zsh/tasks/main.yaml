@@ -1,0 +1,11 @@
+---
+- name: Install Z shell and plugins
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - zsh
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+...
