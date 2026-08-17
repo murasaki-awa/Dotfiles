@@ -76,31 +76,40 @@ fi
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 else
-    echo ".aliases not found. Make sure to stow it from dotfiles."
+    echo ".aliases not found. Make sure to create a symlink from dotfiles."
 fi
 # --------------------------------------------------
 
 # --------------------------------------------------
 # if zsh-syntax-highlighting.zsh exists then eval it
 # --------------------------------------------------
-if [ -f ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /home/user/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    echo "zsh-syntax-highlighting.zsh not found in ~/.config/zsh/zsh-syntax-highlighting/.\nPlease configure your init script properly."
+    echo "zsh-syntax-highlighting.zsh not found in /usr/share/zsh-syntax-highlighting/.\nPlease install them via dnf."
 fi
 # --------------------------------------------------
 
 # --------------------------------------------------
 # if zsh-auto-suggestions.zsh exists then eval it
 # --------------------------------------------------
-if [ -f ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source /home/user/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-    echo "zsh-autosuggestions.zsh not found in ~/.config/zsh/zsh-autosuggestions/.\nPlease configure your init script properly."
+    echo "zsh-autosuggestions.zsh not found in /usr/share/zsh-autosuggestions/.\nPlease install them via dnf."
 fi
 # --------------------------------------------------
 
 eval "$(zoxide init --cmd cd zsh)"
+
+# --------------------------------------------------
+# Add auto-completion features for different tools
+# --------------------------------------------------
+source <(docker completion zsh)
+source <(talosctl completion zsh)
+source <(kubectl completion zsh)
+command -v flux >/dev/null && . <(flux completion zsh)
+# --------------------------------------------------
 
 # ==================================================
 # EOF

@@ -4,12 +4,27 @@
 
 alias n="nvim"
 alias ls="ls -aho --color=auto"
+# alias cat="bat"
 
 alias scripts="cd ~/Dotfiles/scripts/ && n ."
 
 alias mountjellyfin="sshfs root@192.168.1.22:/mnt/pve/local-hdd/data/jellyfin/ ~/Remote/"
-alias mounttrixie="sshfs user@192.168.1.71:/home/user/ ~/Remote/ -p 2244"
+alias mnthome="sshfs user@192.168.1.71:/home/user/ ~/Remote2/ -p 2244"
+alias mntdev="sshfs user@192.168.1.45:/home/user/ ~/Remote/ -p 2244"
 alias sshtrixie="ssh user@192.168.1.71 -p 2244"
+
+# =================================
+# KITTY
+# =================================
+
+alias ssh="kitten ssh"
+
+alias dks="kitty --session ~/.config/kitty/sessions/devops.kitty-session"
+alias dsks="kitty --session ~/.config/kitty/sessions/devops-ssh.kitty-session"
+alias kks="kitty --session ~/.config/kitty/sessions/kitty.kitty-session"
+alias nks="kitty --session ~/.config/kitty/sessions/nvim.kitty-session"
+alias pks="kitty --session ~/.config/kitty/sessions/proxmox.kitty-session"
+alias tks="kitty --session ~/.config/kitty/sessions/tmux.kitty-session"
 
 # =================================
 # SHELL
@@ -22,8 +37,6 @@ alias szshrc="source ~/.zshrc"
 
 alias bashrc="nvim ~/.bashrc"
 alias sbashrc="source ~/.bashrc"
-
-alias tmuxcfg="nvim ~/.config/tmux/tmux.conf"
 
 # =================================
 # SYSTEMCTL
@@ -106,6 +119,28 @@ alias sdclF='sudo docker compose logs -f --tail=0'
 alias sdcpull='sudo docker compose pull'
 alias sdcstart='sudo docker compose start'
 alias sdck='sudo docker compose kill'
+
+alias garage="docker exec -it garage /garage"
+
+# =================================
+# LAZYDOCKER
+# =================================
+
+alias lazydocker='sudo ~/.local/bin/lazydocker'
+
+# =================================
+
+# =================================
+# TALOS
+# =================================
+
+alias t='talosctl'
+
+# =================================
+# KUBERNETES
+# =================================
+
+alias k='kubectl'
 
 # =================================
 # EOF
