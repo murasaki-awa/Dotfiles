@@ -4,10 +4,11 @@
 
   roles:
     #- kitty
-    - fedora
+    #- fedora
     #- zed
     #- steam
     #- neovim
     #- dotfiles
-    - zsh
+    #- zsh
+    - vmm
 ...
