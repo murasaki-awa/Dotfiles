@@ -1,9 +1,0 @@
----
-- name: CLI Tools
-  become: true
-  ansible.builtin.dnf:
-    name:
-      - zoxide
-    state: present
-  when: ansible_facts['distribution'] == "Fedora"
-...

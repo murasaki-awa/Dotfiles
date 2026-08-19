@@ -3,12 +3,10 @@
   hosts: localhost
 
   roles:
-    #- kitty
-    #- fedora
-    #- zed
-    #- steam
-    #- neovim
-    #- dotfiles
-    #- zsh
-    - vmm
+    - dotfiles
+    - os
+    - fedora
+    - gnome
+    - apps
+    - kitty
 ...

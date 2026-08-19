@@ -1,0 +1,26 @@
+---
+- name: Install Apps
+  block:
+    - name: Install Apps via DNF
+      when: ansible_facts['distribution'] == "Fedora"
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - neovim
+          - steam
+          - virt-manager
+          - vlc
+          - zsh
+          - zsh-autosuggestions
+          - zsh-syntax-highlighting
+          - zoxide
+        state: present
+
+    - name: Install Apps via Flatpak
+      community.general.flatpak:
+        name:
+          - dev.zed.Zed
+          - com.vixalien.sticky
+        state: present
+        method: user
+...

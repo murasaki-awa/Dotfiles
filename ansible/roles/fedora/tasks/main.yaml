@@ -7,11 +7,7 @@
   ansible.builtin.import_tasks:
     file: flathub.yaml
 
-- name: Install CLI Tools
+- name: Install additional codec
   ansible.builtin.import_tasks:
-    file: cli_tools.yaml
-
-- name: Configure User
-  ansible.builtin.import_tasks:
-    file: user.yaml
+    file: codecs.yaml
 ...

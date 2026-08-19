@@ -1,0 +1,33 @@
+---
+- name: Install/Remove Gnome Apps
+  block:
+    - name: Install Apps
+      when: ansible_facts['distribution'] == "Fedora"
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - gnome-tweaks
+          - gnome-shell-extension-appindicator
+          - gnome-shell-extension-caffeine
+        state: present
+
+    - name: Install Apps
+      community.general.flatpak:
+        name:
+          - com.mattjakeman.ExtensionManager
+        state: present
+        method: user
+
+    - name: Remove Apps
+      when: ansible_facts['distribution'] == "Fedora"
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - decibels
+          - gnome-boxes
+          - mediawriter
+          - gnome-maps
+          - gnome-tour
+          - showtime
+        state: absent
+...

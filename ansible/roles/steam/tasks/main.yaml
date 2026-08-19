@@ -1,8 +1,0 @@
----
-- name: Install Steam - Digital Distribution Platform
-  become: true
-  ansible.builtin.dnf:
-    name: steam
-    state: present
-  when: ansible_facts['distribution'] == "Fedora"
-...

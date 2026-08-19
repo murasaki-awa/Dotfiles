@@ -1,8 +1,0 @@
----
-- name: Install Virtual Machine Manager
-  become: true
-  ansible.builtin.dnf:
-    name: virt-manager
-    state: present
-  when: ansible_facts['distribution'] == "Fedora"
-...

@@ -1,7 +1,0 @@
----
-- name: Install Zed Code Editor
-  community.general.flatpak:
-    name: dev.zed.Zed
-    state: present
-    method: user
-...

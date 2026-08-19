@@ -1,8 +1,0 @@
----
-- name: Install Neovim - Text Editor
-  become: true
-  ansible.builtin.dnf:
-    name: neovim
-    state: present
-  when: ansible_facts['distribution'] == "Fedora"
-...

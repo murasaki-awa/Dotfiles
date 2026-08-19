@@ -2,6 +2,6 @@
 - name: Change User Config
   become: true
   ansible.builtin.user:
-    name: "{{ fedora_username }}"
+    name: "{{ os_username }}"
     shell: /bin/zsh
 ...
