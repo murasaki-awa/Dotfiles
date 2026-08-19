@@ -8,5 +8,6 @@
     - fedora
     - gnome
     - apps
+    - docker
     - kitty
 ...
