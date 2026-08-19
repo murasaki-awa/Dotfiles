@@ -32,7 +32,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 # --------------------------------------------------
-zstyle :compinstall filename '/home/user/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -57,7 +57,7 @@ PS1='%F{yellow}%n@%m%f %F{green}%~%f $vcs_info_msg_0_${NEWLINE}%F{gray}❱%f '
 # ==================================================
 
 # --------------------------------------------------
-export PATH=$PATH:/home/user/.local/bin
+export PATH=$PATH:/$HOME/.local/bin
 if command -v nvim &> /dev/null; then
     export EDITOR="nvim"
     export VISUAL="nvim"
