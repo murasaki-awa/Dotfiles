@@ -6,6 +6,7 @@
       become: true
       ansible.builtin.dnf:
         name:
+          - anki
           - neovim
           - steam
           - virt-manager
