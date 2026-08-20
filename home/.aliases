@@ -3,7 +3,7 @@
 # =================================
 
 alias n="nvim"
-alias ls="ls -aho --color=auto"
+# alias ls="ls -aho --color=auto"
 # alias cat="bat"
 
 alias scripts="cd ~/Dotfiles/scripts/ && n ."
@@ -19,12 +19,12 @@ alias sshtrixie="ssh user@192.168.1.71 -p 2244"
 
 alias ssh="kitten ssh"
 
-alias dks="kitty --session ~/.config/kitty/sessions/devops.kitty-session"
-alias dsks="kitty --session ~/.config/kitty/sessions/devops-ssh.kitty-session"
-alias kks="kitty --session ~/.config/kitty/sessions/kitty.kitty-session"
-alias nks="kitty --session ~/.config/kitty/sessions/nvim.kitty-session"
-alias pks="kitty --session ~/.config/kitty/sessions/proxmox.kitty-session"
-alias tks="kitty --session ~/.config/kitty/sessions/tmux.kitty-session"
+#alias dks="kitty --session ~/.config/kitty/sessions/devops.kitty-session"
+#alias dsks="kitty --session ~/.config/kitty/sessions/devops-ssh.kitty-session"
+#alias kks="kitty --session ~/.config/kitty/sessions/kitty.kitty-session"
+#alias nks="kitty --session ~/.config/kitty/sessions/nvim.kitty-session"
+#alias pks="kitty --session ~/.config/kitty/sessions/proxmox.kitty-session"
+#alias tks="kitty --session ~/.config/kitty/sessions/tmux.kitty-session"
 
 # =================================
 # SHELL
