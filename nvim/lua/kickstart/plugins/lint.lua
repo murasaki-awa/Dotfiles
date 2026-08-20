@@ -7,7 +7,7 @@ return {
     local lint = require 'lint'
     lint.linters_by_ft = {
       dockerfile = { 'hadolint' },
-      markdown = { 'vale' },
+      -- markdown = { 'vale' },
       terraform = { 'tflint' },
       ['yaml.ansible'] = { 'ansible_lint' },
     }
