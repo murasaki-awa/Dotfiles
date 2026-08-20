@@ -5,6 +5,12 @@
     dest: "{{ dotfiles_nvim_link_path }}"
     state: link
 
+- name: Create symlink for Kitty's dotfiles
+  ansible.builtin.file:
+    src: "{{ dotfiles_kitty_path }}"
+    dest: "{{ dotfiles_kitty_link_path }}"
+    state: link
+
 - name: Create symlink for Zsh
   ansible.builtin.file:
     src: "{{ dotfiles_zsh_path }}"
