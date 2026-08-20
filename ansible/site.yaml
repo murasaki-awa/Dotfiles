@@ -9,5 +9,6 @@
     - gnome
     - apps
     - docker
+    - kubectl
     - kitty
 ...
