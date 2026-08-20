@@ -1,0 +1,18 @@
+# To get the latest version: https://dl.k8s.io/release/stable.txt
+---
+- name: Install Kube Control for Fedora
+  when: ansible_facts['distribution'] == "Fedora"
+  block:
+    - name: Add Kubernetes repository
+      become: true
+      ansible.builtin.copy:
+        src: kubernetes.repo
+        dest: /etc/yum.repos.d/kubernetes.repo
+        mode: '0644'
+
+    - name: Install kubectl
+      become: true
+      ansible.builtin.dnf:
+        state: present
+        name: kubectl
+...
