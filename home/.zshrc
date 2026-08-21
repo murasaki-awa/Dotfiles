@@ -106,9 +106,15 @@ eval "$(zoxide init --cmd cd zsh)"
 # Add auto-completion features for different tools
 # --------------------------------------------------
 source <(docker completion zsh)
+
 # source <(talosctl completion zsh)
+
 source <(kubectl completion zsh)
+
 # command -v flux >/dev/null && . <(flux completion zsh)
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
 # --------------------------------------------------
 
 # ==================================================
