@@ -11,6 +11,12 @@
     dest: "{{ dotfiles_kitty_link_path }}"
     state: link
 
+- name: Create symlink for Git
+  ansible.builtin.file:
+    src: "{{ dotfiles_git_path }}"
+    dest: "{{ dotfiles_git_link_path }}"
+    state: link
+
 - name: Create symlink for Zsh
   ansible.builtin.file:
     src: "{{ dotfiles_zsh_path }}"

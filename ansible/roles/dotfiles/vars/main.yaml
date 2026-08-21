@@ -4,6 +4,9 @@ dotfiles_kitty_link_path: "{{ ansible_facts['user_dir'] }}/.config/kitty"
 dotfiles_nvim_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/nvim"
 dotfiles_nvim_link_path: "{{ ansible_facts['user_dir'] }}/.config/nvim"
 
+dotfiles_git_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/home/.gitconfig"
+dotfiles_git_link_path: "{{ ansible_facts['user_dir'] }}/.gitconfig"
+
 dotfiles_zsh_path: "{{ ansible_facts['user_dir'] }}/Dotfiles/home/.zshrc"
 dotfiles_zsh_link_path: "{{ ansible_facts['user_dir'] }}/.zshrc"
 

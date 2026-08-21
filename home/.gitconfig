@@ -1,3 +1,5 @@
 [user]
-    email = murasaki.awa@proton.me
-    name = murasaki-awa
+	email = murasaki.awa@proton.me
+	name = murasaki-awa
+[init]
+	defaultBranch = main
